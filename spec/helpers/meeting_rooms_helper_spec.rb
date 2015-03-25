@@ -8,7 +8,7 @@ def create_room (reserved_time)
   return room
 end
 
-RSpec.describe MeetingRoomHelper, type: :helper do
+RSpec.describe MeetingRoomsHelper, type: :helper do
   describe "#is_booked_at_that_time?" do
     it "returns true if the room is booked at provided time " do
       room = create_room(2)

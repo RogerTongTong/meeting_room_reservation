@@ -1,0 +1,19 @@
+<h1>
+  Reserved meeting rooms by <%= @user.name %>
+</h1>
+<table border="1">
+  <tr>
+    <th>Meeting room name</th>
+    <th>reserved time</th>
+  </tr>
+  <% if reservations = generate_reservation_list(@user.reservations) %>
+    <% reservations.each do |reservation| %>
+      <tr>
+        <td><%= reservation[:name] %></td>
+        <td><%= reservation[:time] %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+
+

@@ -1,4 +1,4 @@
-module MeetingRoomHelper
+module MeetingRoomsHelper
   def is_booked_at_that_time?(room, time)
     room.reservations.each do |reservation|
       if reservation.time == time
