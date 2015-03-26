@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="382396689">
+  <component name="DataSourceManagerImpl" format="xml" hash="234667175">
     <data-source source="LOCAL" name="Rails meeting_room_reservation: development" uuid="0bde0d69-5a72-4c1f-ab3a-d48ee9f0c4de">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>

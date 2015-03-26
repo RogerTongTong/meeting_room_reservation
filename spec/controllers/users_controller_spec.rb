@@ -8,7 +8,7 @@ RSpec.describe UsersController, type: :controller do
                                         password: "jordan35",
                                         :password_confirmation => "jordan35"} }
       it 'should redirect to user page if user is saved successfully' do
-        expect(subject).to redirect_to(user_url(assigns(:user)))
+        expect(subject).to redirect_to(root_url)
       end
 
     end
@@ -20,6 +20,28 @@ RSpec.describe UsersController, type: :controller do
       it 'should redirect to user page if user is saved successfully' do
         expect(subject).to render_template :new
       end
+    end
+  end
+
+  describe "#new" do
+    it 'should make a new User object as instance variable' do
+      user = User.new
+      expect(User).to receive(:new).and_return(user)
+
+      get :new
+
+      expect(assigns(:user)).to eq(user)
+    end
+  end
+
+  describe "#show" do
+    it 'should find user with id parameter and assign it as instance variable' do
+      user = User.new
+      expect(User).to receive(:find).with("1").and_return(user)
+
+      get(:show, {id: 1})
+
+      expect(assigns(:user)).to eq(user)
     end
   end
 end

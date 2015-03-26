@@ -14,25 +14,39 @@
     %>
 
   </tr>
-  <%
-     @rooms.each do |room|
-  %>
-    <tr>
-      <td><%= room.name %></td>
-      <%
-         24.times do |t|
-      %>
-        <td>
-          <button
-          <% if is_booked_at_that_time?(room, t) %>disabled
-          <% end %>>book
-          </button>
-        </td>
-      <%
-         end
-      %>
-    </tr>
-  <%
-     end
-  %>
+  <%= form_for(:records, url: book_path) do |form| %>
+    <%
+       @rooms.each do |room|
+    %>
+      <tr>
+        <td><%= room.name %></td>
+        <%
+           24.times do |t|
+        %>
+          <td>
+            <% if is_booked?(room, t) %>
+              <%= form.check_box "",
+                                 {disabled: 'disabled'},
+                                 "#{room.id},#{t}", false
+              %>
+            <% else %>
+              <%= form.check_box "",
+                                 {},
+                                 "#{room.id},#{t}", false
+              %>
+            <% end %>
+          </td>
+        <%
+           end
+        %>
+      </tr>
+    <%
+       end
+    %>
+    <% if logged_in? %>
+      <tr>
+        <td ><%= form.submit "Submit" %></td>
+      </tr>
+    <% end %>
+  <% end %>
 </table>

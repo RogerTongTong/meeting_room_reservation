@@ -1,13 +1,20 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <title>Meeting Room Reservation</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<h2>Current User:
+  <% if logged_in? %>
+    <%= link_to(current_user.name, user_path(current_user), method: "get") %>
+    <%= link_to("sign out", logout_path, method: "delete") %>
+  <% else %>
+    <%= link_to("sign in here", login_path) %>
+  <% end %>
+</h2>
 <%= yield %>
 
 </body>

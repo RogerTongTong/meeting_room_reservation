@@ -1,7 +1,7 @@
 module MeetingRoomsHelper
-  def is_booked_at_that_time?(room, time)
+  def is_booked?(room, time)
     room.reservations.each do |reservation|
-      if reservation.time == time
+      if Date.current == reservation.date && reservation.time == time
         return true
       end
     end

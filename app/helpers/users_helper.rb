@@ -15,9 +15,9 @@ module UsersHelper
     reservations.each do |reservation|
       element = getElementByReservation(result, reservation)
       if element
-        element[:time] ="#{element[:time]},#{reservation.time}"
+        element[:time] ="#{element[:time]}, #{reservation.time}:00"
       else
-        element = {name: reservation.room.name, time: reservation.time}
+        element = {name: reservation.room.name, time: "#{reservation.time}:00"}
         result << element
       end
     end
