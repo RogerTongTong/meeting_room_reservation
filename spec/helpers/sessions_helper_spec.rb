@@ -25,7 +25,7 @@ RSpec.describe SessionsHelper, type: :helper do
     it "should find user by session's user_id at the first time, but not invoke find_user again at the second time" do
       session[:user_id] = 1
       user = User.new
-      expect(User).to receive(:find_by).with(1).and_return(user)
+      expect(User).to receive(:find_by).with({id: 1}).and_return(user)
       expect(helper.current_user).to eq(user)
 
       expect(User).to receive(:find_by).never

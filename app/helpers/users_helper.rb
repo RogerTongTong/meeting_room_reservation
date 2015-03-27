@@ -13,7 +13,7 @@ module UsersHelper
     end
     result = Array.new
     reservations.each do |reservation|
-      element = getElementByReservation(result, reservation)
+      element = get_element_by_reservation(result, reservation)
       if element
         element[:time] ="#{element[:time]}, #{reservation.time}:00"
       else
@@ -26,8 +26,7 @@ module UsersHelper
 
   private
 
-  # Todo: Change to name to ruby style
-  def getElementByReservation(result, reservation)
+  def get_element_by_reservation(result, reservation)
     result.each do |element|
       if element[:name] == reservation.room.name
         return element

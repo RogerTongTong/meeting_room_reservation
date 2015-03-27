@@ -6,11 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# Todo: Refactoring
-Room.create(name: "Toronto", city: "Xi'an")
-Room.create(name: "Los Angles", city: "Xi'an")
-Room.create(name: "Chicago", city: "Xi'an")
-Room.create(name: "Dallas", city: "Xi'an")
-Room.create(name: "Washington DC", city: "Xi'an")
-Room.create(name: "Cincinnati", city: "Xi'an")
-Room.create(name: "Indian Wells", city: "Xi'an")
+array = ["Totonto", "Los Angles", "Chicago", "Dallas", "Washington DC", "Cincinnati", "Indian Wells"]
+array.each do |name|
+  Room.create(name: name, city: "Xi'an")
+end

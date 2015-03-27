@@ -8,12 +8,10 @@ RSpec.describe MeetingRoomsController, type: :controller do
         user = User.new
         user.id = 1
         session[:user_id] = 1
-        reservation = Reservation.new
-
-        expect(Reservation).to receive(:new).with({room_id: "1", user_id: 1, time: "2", date: Date.current}).and_return(reservation)
-        expect(Reservation).to receive(:new).with({room_id: "1", user_id: 1, time: "3", date: Date.current}).and_return(reservation)
-        expect(Reservation).to receive(:new).with({room_id: "2", user_id: 1, time: "2", date: Date.current}).and_return(reservation)
         allow(User).to receive(:find_by).and_return(user)
+
+        expect(Reservation).to receive(:save_records)
+
         expect(subject).to redirect_to(user_url(user))
       end
     end
