@@ -2,5 +2,10 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="Rails meeting_room_reservation: development" uuid="0bde0d69-5a72-4c1f-ab3a-d48ee9f0c4de" />
+    <data-source name="Rails meeting_room_reservation: development" uuid="15a7385a-d0b0-4624-a5af-922e2a63cf45">
+      <first-sync>true</first-sync>
+    </data-source>
+    <data-source name="Rails meeting_room_reservation: test" uuid="58db5fd7-65a9-46df-b72e-21aa28ce9a60" />
+    <data-source name="Rails meeting_room_reservation: production" uuid="dcaa7fda-1b2b-4164-a1f3-e24b63f5214d" />
   </component>
 </project>
