@@ -5,6 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Todo: Refactoring
 Room.create(name: "Toronto", city: "Xi'an")
 Room.create(name: "Los Angles", city: "Xi'an")
 Room.create(name: "Chicago", city: "Xi'an")
