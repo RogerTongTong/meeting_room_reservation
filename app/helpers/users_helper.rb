@@ -26,6 +26,7 @@ module UsersHelper
 
   private
 
+  # Todo: Change to name to ruby style
   def getElementByReservation(result, reservation)
     result.each do |element|
       if element[:name] == reservation.room.name

@@ -3,46 +3,28 @@
 <table border="1" align="center">
   <tr>
     <th>Meeting Room</th>
-    <%
-       24.times do |i|
-    %>
+    <%24.times do |i|%>
       <th style="width:50px">
         <%= i %>:00
       </th>
-    <%
-       end
-    %>
+    <%end%>
 
   </tr>
   <%= form_for(:records, url: book_path) do |form| %>
-    <%
-       @rooms.each do |room|
-    %>
+    <%@rooms.each do |room|%>
       <tr>
         <td><%= room.name %></td>
-        <%
-           24.times do |t|
-        %>
+        <%24.times do |t|%>
           <td>
             <% if is_booked?(room, t) %>
-              <%= form.check_box "",
-                                 {disabled: 'disabled'},
-                                 "#{room.id},#{t}", false
-              %>
+              <%= form.check_box "",{disabled: 'disabled'},"#{room.id},#{t}", false%>
             <% else %>
-              <%= form.check_box "",
-                                 {},
-                                 "#{room.id},#{t}", false
-              %>
+              <%= form.check_box "",{},"#{room.id},#{t}", false%>
             <% end %>
           </td>
-        <%
-           end
-        %>
+        <%end%>
       </tr>
-    <%
-       end
-    %>
+    <%end%>
     <% if logged_in? %>
       <tr>
         <td ><%= form.submit "Submit" %></td>
